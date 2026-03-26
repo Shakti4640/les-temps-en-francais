@@ -28,37 +28,44 @@ updateProgress();
     });
 
 let touchStartX = 0;
-let touchStartY = 0; // Added to track vertical start
+let touchStartY = 0;
 
 const touchArea = document.body;
 
 touchArea.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY; // Capture vertical start
+    touchStartY = e.touches[0].clientY;
 }, { passive: true });
 
 touchArea.addEventListener('touchend', e => {
     const touchEndX = e.changedTouches[0].clientX;
-    const touchEndY = e.changedTouches[0].clientY; // Capture vertical end
+    const touchEndY = e.changedTouches[0].clientY;
 
     const diffX = touchStartX - touchEndX;
     const diffY = touchStartY - touchEndY;
+    const thresholdX = 80; // Minimum horizontal distance
     
-    // 1. Increase threshold from 50 to 100 for less sensitivity
-    const thresholdX = 100; 
+    // Calculate scroll position
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
     
-    // 2. Vertical Restraint: Ensure horizontal swipe is much larger than vertical movement
-    // This prevents accidental triggers while scrolling up/down
+    // Buffer of 5px to account for sub-pixel rendering/rounding issues
+    const isAtBottom = (scrollTop + windowHeight) >= (docHeight - 5);
+    const isAtTop = scrollTop <= 5;
+
+    // Check if horizontal movement is dominant
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > thresholdX) {
         const prev = document.querySelector('.nav-button.prev');
         const next = document.querySelector('.nav-button.next');
 
-        // Swipe left (positive diffX) → next page
-        if (diffX > 0 && next && !next.classList.contains('disabled')) {
+        // 👉 Swipe left → Next Page (Only if at the bottom)
+        if (diffX > 0 && isAtBottom && next && !next.classList.contains('disabled')) {
             window.location.href = next.href;
         }
-        // Swipe right (negative diffX) → previous page
-        else if (diffX < 0 && prev && !prev.classList.contains('disabled')) {
+
+        // 👉 Swipe right → Previous Page (Only if at the top)
+        if (diffX < 0 && isAtTop && prev && !prev.classList.contains('disabled')) {
             window.location.href = prev.href;
         }
     }
