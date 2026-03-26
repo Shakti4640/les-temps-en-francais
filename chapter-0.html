@@ -266,19 +266,7 @@
         </div>
     </div>
 
-    <script>
-    document.addEventListener('keydown', function(e) {
-        if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
-        if (e.key === 'ArrowLeft') {
-            const b = document.querySelector('.nav-button.prev');
-            if (b && !b.classList.contains('disabled')) window.location.href = b.href;
-        }
-        if (e.key === 'ArrowRight') {
-            const b = document.querySelector('.nav-button.next');
-            if (b && !b.classList.contains('disabled')) window.location.href = b.href;
-        }
-    });
-    </script>
+    <script src="script1.js"></script>
 
 </body>
 </html>
