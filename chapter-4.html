@@ -614,35 +614,7 @@ In the imparfait, <strong>venait de + infinitive</strong> = had just done someth
 <div id="section-progress-percentage" style="position: fixed; top: 0px; right: 16px; color: #667eea; font-size: 14px; font-weight: bold; z-index: 1001; text-shadow: 0 1px 2px rgba(255,255,255,0.8);">0%</div>
 
 
-<script>
-// Smooth scroll progress indicator
-const progressBar = document.getElementById('section-progress-bar');
-const percentageDisplay = document.getElementById('section-progress-percentage');
-
-function updateProgress() {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrolled = (scrollTop / docHeight) * 100;
-    
-    progressBar.style.height = scrolled + '%';
-    percentageDisplay.textContent = Math.round(scrolled) + '%';
-}
-
-window.addEventListener('scroll', updateProgress);
-updateProgress();
-
-    document.addEventListener('keydown', function(e) {
-        if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
-        if (e.key === 'ArrowLeft') {
-            const b = document.querySelector('.nav-button.prev');
-            if (b && !b.classList.contains('disabled')) window.location.href = b.href;
-        }
-        if (e.key === 'ArrowRight') {
-            const b = document.querySelector('.nav-button.next');
-            if (b && !b.classList.contains('disabled')) window.location.href = b.href;
-        }
-    });
-    </script>
+<script src="script.js"></script>
 
 </body>
 </html>
