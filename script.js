@@ -27,32 +27,39 @@ updateProgress();
         }
     });
 
-    let touchStartX = 0;
-let touchEndX = 0;
+let touchStartX = 0;
+let touchStartY = 0; // Added to track vertical start
 
 const touchArea = document.body;
 
 touchArea.addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY; // Capture vertical start
 }, { passive: true });
 
 touchArea.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].clientX;
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY; // Capture vertical end
 
-  const diff = touchStartX - touchEndX;
-  const threshold = 50;
+    const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
+    
+    // 1. Increase threshold from 50 to 100 for less sensitivity
+    const thresholdX = 100; 
+    
+    // 2. Vertical Restraint: Ensure horizontal swipe is much larger than vertical movement
+    // This prevents accidental triggers while scrolling up/down
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > thresholdX) {
+        const prev = document.querySelector('.nav-button.prev');
+        const next = document.querySelector('.nav-button.next');
 
-  const prev = document.querySelector('.nav-button.prev');
-  const next = document.querySelector('.nav-button.next');
-
-  // 👉 Swipe left → next page
-  if (diff > threshold && next && !next.classList.contains('disabled')) {
-    window.location.href = next.href;
-  }
-
-  // 👉 Swipe right → previous page
-  if (diff < -threshold && prev && !prev.classList.contains('disabled')) {
-    window.location.href = prev.href;
-  }
-
+        // Swipe left (positive diffX) → next page
+        if (diffX > 0 && next && !next.classList.contains('disabled')) {
+            window.location.href = next.href;
+        }
+        // Swipe right (negative diffX) → previous page
+        else if (diffX < 0 && prev && !prev.classList.contains('disabled')) {
+            window.location.href = prev.href;
+        }
+    }
 }, { passive: true });
