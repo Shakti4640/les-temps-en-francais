@@ -9,32 +9,46 @@
             if (b && !b.classList.contains('disabled')) window.location.href = b.href;
         }
     });
-    let touchStartX = 0;
-let touchEndX = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
 const touchArea = document.body;
 
 touchArea.addEventListener('touchstart', e => {
-  touchStartX = e.touches[0].clientX;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
 }, { passive: true });
 
 touchArea.addEventListener('touchend', e => {
-  touchEndX = e.changedTouches[0].clientX;
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
 
-  const diff = touchStartX - touchEndX;
-  const threshold = 50;
+    const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
+    const thresholdX = 80; // Minimum horizontal distance
+    
+    // Calculate scroll position
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    
+    // Buffer of 5px to account for sub-pixel rendering/rounding issues
+    const isAtBottom = (scrollTop + windowHeight) >= (docHeight - 5);
+    const isAtTop = scrollTop <= 5;
 
-  const prev = document.querySelector('.nav-button.prev');
-  const next = document.querySelector('.nav-button.next');
+    // Check if horizontal movement is dominant
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > thresholdX) {
+        const prev = document.querySelector('.nav-button.prev');
+        const next = document.querySelector('.nav-button.next');
 
-  // 👉 Swipe left → next page
-  if (diff > threshold && next && !next.classList.contains('disabled')) {
-    window.location.href = next.href;
-  }
+        // 👉 Swipe left → Next Page (Only if at the bottom)
+        if (diffX > 0 && isAtBottom && next && !next.classList.contains('disabled')) {
+            window.location.href = next.href;
+        }
 
-  // 👉 Swipe right → previous page
-  if (diff < -threshold && prev && !prev.classList.contains('disabled')) {
-    window.location.href = prev.href;
-  }
-
+        // 👉 Swipe right → Previous Page (Only if at the top)
+        if (diffX < 0 && isAtTop && prev && !prev.classList.contains('disabled')) {
+            window.location.href = prev.href;
+        }
+    }
 }, { passive: true });
