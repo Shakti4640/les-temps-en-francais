@@ -4,258 +4,1145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🇫🇷 COMPREHENSIVE GUIDE TO ALL FRENCH TENSES — French Tenses Guide</title>
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ===== Chapter 0 — Hero & Layout ===== */
+        .hero-section {
+            background: linear-gradient(135deg, #002395 0%, #0a3d91 40%, #ED2939 100%);
+            color: #fff;
+            padding: 32px 40px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            pointer-events: none;
+        }
+        .hero-flag {
+            font-size: 2.2rem;
+            margin-bottom: 6px;
+            display: block;
+            filter: drop-shadow(0 3px 8px rgba(0,0,0,0.25));
+        }
+        .hero-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        .hero-sub {
+            font-size: 0.92rem;
+            opacity: 0.9;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ===== Section Titles ===== */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 48px 0 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #ED2939;
+        }
+        .section-heading .sh-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            font-weight: 700;
+            color: #fff;
+        }
+        .section-heading .sh-icon.blue { background: linear-gradient(135deg, #002395, #1a56db); }
+        .section-heading .sh-icon.red  { background: linear-gradient(135deg, #ED2939, #b91c1c); }
+        .section-heading .sh-icon.purple { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+        .section-heading .sh-icon.teal { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+        .section-heading .sh-icon.amber { background: linear-gradient(135deg, #d97706, #f59e0b); }
+        .section-heading h2 {
+            font-size: 1.5rem;
+            color: #002395;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .section-heading p {
+            font-size: 0.88rem;
+            color: #64748b;
+            margin: 2px 0 0;
+        }
+
+        /* ===== Roadmap Cards ===== */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .roadmap-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .roadmap-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            border-radius: 12px 0 0 12px;
+        }
+        .roadmap-card.mood-indicatif::before { background: #002395; }
+        .roadmap-card.mood-conditionnel::before { background: #7c3aed; }
+        .roadmap-card.mood-subjonctif::before { background: #0d9488; }
+        .roadmap-card.mood-imperatif::before { background: #ED2939; }
+        .roadmap-card.mood-other::before { background: #d97706; }
+        .roadmap-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,35,149,0.12);
+            border-color: #b5d4f4;
+        }
+        .rc-num {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            color: #fff;
+        }
+        .mood-indicatif .rc-num { background: linear-gradient(135deg, #002395, #1a56db); }
+        .mood-conditionnel .rc-num { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+        .mood-subjonctif .rc-num { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+        .mood-imperatif .rc-num { background: linear-gradient(135deg, #ED2939, #ef4444); }
+        .mood-other .rc-num { background: linear-gradient(135deg, #d97706, #f59e0b); }
+        .rc-text h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 2px;
+            color: #1e293b;
+        }
+        .rc-text .rc-mood {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-weight: 500;
+        }
+        .mood-indicatif .rc-mood { color: #002395; }
+        .mood-conditionnel .rc-mood { color: #5b21b6; }
+        .mood-subjonctif .rc-mood { color: #0d9488; }
+        .mood-imperatif .rc-mood { color: #ED2939; }
+        .mood-other .rc-mood { color: #d97706; }
+
+        /* ===== Quick Reference Table ===== */
+        .ref-table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin: 20px 0 32px;
+        }
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        .ref-table thead th {
+            background: linear-gradient(135deg, #002395, #1a56db);
+            color: #fff;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .ref-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: top;
+        }
+        .ref-table tbody tr:last-child td { border-bottom: none; }
+        .ref-table tbody tr:hover td { background: #f0f4ff; }
+        .ref-table .t-num { font-weight: 700; color: #002395; text-align: center; width: 40px; }
+        .ref-table .t-tense { font-weight: 600; color: #1e293b; white-space: nowrap; }
+        .ref-table .t-use { color: #475569; }
+        .ref-table .t-form { color: #334155; font-family: 'Consolas','Monaco','Courier New',monospace; font-size: 0.85rem; }
+        .ref-table .t-ex { font-style: italic; color: #64748b; }
+        .ref-table .t-ex strong { color: #002395; font-style: normal; }
+
+        /* ===== Timeline Visual ===== */
+        .timeline-box {
+            background: linear-gradient(135deg, #f8fafc, #eef2ff);
+            border: 1px solid #c7d2fe;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 24px 0 36px;
+            position: relative;
+        }
+        .timeline-box h3 {
+            text-align: center;
+            color: #002395;
+            margin-bottom: 24px;
+            font-size: 1.15rem;
+        }
+        .timeline-track {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            position: relative;
+        }
+        .timeline-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 12px;
+            position: relative;
+        }
+        .timeline-col:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0; top: 0; bottom: 0;
+            width: 1px;
+            background: #c7d2fe;
+        }
+        .timeline-col-title {
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 8px 0;
+            border-radius: 8px;
+            margin-bottom: 4px;
+        }
+        .timeline-col-title.past { background: #fee2e2; color: #991b1b; }
+        .timeline-col-title.present { background: #dbeafe; color: #1e40af; }
+        .timeline-col-title.future { background: #d1fae5; color: #065f46; }
+        .tl-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.82rem;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .tl-item strong { color: #002395; }
+        .tl-item .tl-desc { display: block; font-size: 0.72rem; color: #94a3b8; margin-top: 3px; }
+
+        /* ===== Auxiliary Rule Box ===== */
+        .aux-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0 12px;
+        }
+        .aux-card {
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid;
+        }
+        .aux-card.avoir {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-color: #93c5fd;
+        }
+        .aux-card.etre {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border-color: #fca5a5;
+        }
+        .aux-card h4 {
+            font-size: 1.1rem;
+            margin: 0 0 8px;
+        }
+        .aux-card.avoir h4 { color: #1e40af; }
+        .aux-card.etre h4 { color: #991b1b; }
+        .aux-card p { margin: 0; font-size: 0.92rem; color: #475569; }
+        .agreement-note {
+            background: linear-gradient(135deg, #fefce8, #fef9c3);
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 16px 0 36px;
+            font-size: 0.92rem;
+            color: #78350f;
+        }
+        .agreement-note strong { color: #92400e; }
+
+        /* ===== Golden Formulas Section ===== */
+        .gf-intro {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 32px;
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .gf-stems {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .gf-stem-card {
+            flex: 1;
+            min-width: 260px;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid;
+        }
+        .gf-stem-card.a {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-color: #93c5fd;
+        }
+        .gf-stem-card.b {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-color: #c4b5fd;
+        }
+        .gf-stem-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+        .gf-stem-card.a .gf-stem-label { color: #1e40af; }
+        .gf-stem-card.b .gf-stem-label { color: #5b21b6; }
+        .gf-stem-val {
+            font-family: 'Consolas','Monaco','Courier New',monospace;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .gf-stem-uses {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        .gf-legend {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .gf-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+        .gf-legend-dot {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+        }
+        .gf-legend-dot.simple { background: linear-gradient(135deg, #002395, #1a56db); }
+        .gf-legend-dot.compound { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+
+        /* ===== Formula Group ===== */
+        .gf-group {
+            margin-bottom: 36px;
+        }
+        .gf-group-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .gf-group-header.simple {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #93c5fd;
+        }
+        .gf-group-header.compound {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border: 1px solid #c4b5fd;
+        }
+        .gf-group-icon {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .gf-group-header.simple .gf-group-icon { background: linear-gradient(135deg, #002395, #1a56db); }
+        .gf-group-header.compound .gf-group-icon { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+        .gf-group-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .gf-group-header.simple .gf-group-title { color: #002395; }
+        .gf-group-header.compound .gf-group-title { color: #5b21b6; }
+        .gf-group-sub {
+            font-size: 0.78rem;
+            margin-top: 2px;
+        }
+        .gf-group-header.simple .gf-group-sub { color: #3b82f6; }
+        .gf-group-header.compound .gf-group-sub { color: #7c3aed; }
+
+        .gf-pp-note {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border: 1px solid #c4b5fd;
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            font-size: 0.82rem;
+            color: #5b21b6;
+            line-height: 1.6;
+        }
+        .gf-pp-note b { color: #3b0764; }
+
+        .gf-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 14px;
+        }
+        .gf-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+        .gf-card:hover {
+            border-color: #93c5fd;
+            box-shadow: 0 6px 20px rgba(0,35,149,0.08);
+        }
+        .gf-card-top {
+            padding: 16px 20px 14px;
+        }
+        .gf-tense-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        .gf-tense-sub {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        .gf-formula {
+            margin: 10px 0 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-family: 'Consolas','Monaco','Courier New',monospace;
+            line-height: 1.55;
+        }
+        .gf-formula.blue {
+            background: #eff6ff;
+            color: #1e40af;
+            border-left: 3px solid #3b82f6;
+        }
+        .gf-formula.purple {
+            background: #f5f3ff;
+            color: #5b21b6;
+            border-left: 3px solid #7c3aed;
+        }
+        .gf-steps {
+            margin-top: 10px;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .gf-step {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #475569;
+        }
+        .gf-step-num {
+            font-size: 0.65rem;
+            font-weight: 700;
+            min-width: 18px; height: 18px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            color: #fff;
+        }
+        .gf-step-num.blue { background: #3b82f6; }
+        .gf-step-num.purple { background: #7c3aed; }
+        .gf-step code {
+            font-family: 'Consolas','Monaco','Courier New',monospace;
+            font-size: 0.78rem;
+            background: rgba(0,0,0,0.04);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+        .gf-warn {
+            font-size: 0.72rem;
+            color: #92400e;
+            background: #fef3c7;
+            border-radius: 6px;
+            padding: 5px 10px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        .gf-card-example {
+            padding: 10px 20px 14px;
+            background: #f8fafc;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .gf-eg-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #94a3b8;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .gf-eg-text {
+            font-size: 0.82rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        .gf-eg-text .hl {
+            color: #002395;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* ===== Master Cheat Sheet ===== */
+        .cheat-table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin: 20px 0 36px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+        .cheat-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .cheat-table thead th {
+            background: linear-gradient(135deg, #002395, #1a56db);
+            color: #fff;
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .cheat-table tbody td {
+            padding: 11px 18px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .cheat-table tbody tr:last-child td { border-bottom: none; }
+        .cheat-table tbody tr:hover td { background: #f0f4ff; }
+        .cheat-table .ct-tense {
+            font-weight: 600;
+            color: #1e293b;
+            white-space: nowrap;
+        }
+        .cheat-table .ct-formula {
+            font-family: 'Consolas','Monaco','Courier New',monospace;
+            font-size: 0.82rem;
+            color: #334155;
+        }
+        .cheat-table .ct-lit {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.6rem; }
+            .hero-section { padding: 36px 20px 32px; }
+            .content { padding: 24px 16px; }
+            .roadmap-grid { grid-template-columns: 1fr; }
+            .gf-cards { grid-template-columns: 1fr; }
+            .aux-grid { grid-template-columns: 1fr; }
+            .timeline-track { flex-direction: column; }
+            .timeline-col:not(:last-child)::after { display: none; }
+            .gf-stems { flex-direction: column; }
+            .section-heading h2 { font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <!-- <header>
             <div class="header-left">
                 <div class="course-title">🇫🇷 Comprehensive Guide to All French Tenses</div>
                 <h1>Introduction: 🇫🇷 COMPREHENSIVE GUIDE TO ALL FRENCH TENSES</h1>
             </div>
-        </header>
+        </header> -->
 
-        <!-- <div class="nav-bar">
-            <span class="nav-button prev disabled">← Previous</span>
-            <div class="page-info">
-                <a href="index.html" class="nav-button home">📋 Table of Contents</a><br>
-                <span style="margin-top:6px;display:block">Chapter 1 of 22</span>
-            </div>
-            <a href="chapter-1.html" class="nav-button next">Next →</a>
-        </div> -->
+        <div class="hero-section">
+            <span class="hero-flag"></span>
+            <div class="hero-title">Comprehensive Guide to All French Tenses</div>
+            <p class="hero-sub">Every tense, every mood, every formula — organized in a logical learning order. From présent to subjonctif plus-que-parfait, master them all.</p>
+        </div>
 
         <div class="content">
-            <div class="chat-message" data-index="0" id="chapter-0">        
-<div class="px-2"><h1 id="home">🇫🇷 COMPREHENSIVE GUIDE TO ALL FRENCH TENSES</h1>
-<p>I'll walk you through <strong>every single French tense</strong> one at a time, in a logical learning order. Here's the <strong>master roadmap</strong> of what we'll cover:</p>
-<hr>
-<h2>📋 MASTER ROADMAP</h2>
-<table>
-   <thead>
-      <tr>
-         <th> # </th>
-         <th>Mood : Tense</th>
-      </tr>
-   </thead>
-<tbody>
-    <tr>
-        <td>1</td>
-        <td>
-            <a href="chapter-1.html">
-                <h3>Indicatif : <strong>Présent</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>
-            <a href="chapter-2.html">
-                <h3>Indicatif : <strong>Passé Composé</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>
-            <a href="chapter-3.html">
-                <h3>Indicatif : <strong>Imparfait</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>
-            <a href="chapter-4.html">
-                <h3>Indicatif : <strong>Plus-que-parfait</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>5</td>
-        <td>
-            <a href="chapter-5.html">
-                <h3>Indicatif : <strong>Passé Simple</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>6</td>
-        <td>
-            <a href="chapter-6.html">
-                <h3>Indicatif : <strong>Passé Antérieur</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>7</td>
-        <td>
-            <a href="chapter-7.html">
-                <h3>Indicatif : <strong>Futur Proche</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>8</td>
-        <td>
-            <a href="chapter-8.html">
-                <h3>Indicatif : <strong>Futur Simple</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>9</td>
-        <td>
-            <a href="chapter-9.html">
-                <h3>Indicatif : <strong>Futur Antérieur</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>10</td>
-        <td>
-            <a href="chapter-10.html">
-                <h3>Indicatif : <strong>Passé Récent</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>11</td>
-        <td>
-            <a href="chapter-11.html">
-                <h3>Conditionnel : <strong>Conditionnel Présent</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>12</td>
-        <td>
-            <a href="chapter-12.html">
-                <h3>Conditionnel : <strong>Conditionnel Passé</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>13</td>
-        <td>
-            <a href="chapter-13.html">
-                <h3>Subjonctif : <strong>Subjonctif Présent</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>14</td>
-        <td>
-            <a href="chapter-14.html">
-                <h3>Subjonctif : <strong>Subjonctif Passé</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>15</td>
-        <td>
-            <a href="chapter-15.html">
-                <h3>Subjonctif : <strong>Subjonctif Imparfait</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>16</td>
-        <td>
-            <a href="chapter-16.html">
-                <h3>Subjonctif : <strong>Subjonctif Plus-que-parfait</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>17</td>
-        <td>
-            <a href="chapter-17.html">
-                <h3>Impératif : <strong>Impératif Présent</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>18</td>
-        <td>
-            <a href="chapter-18.html">
-                <h3>Impératif : <strong>Impératif Passé</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>19</td>
-        <td>
-            <a href="chapter-19.html">
-                <h3>Other : <strong>Participe Présent &amp; Gérondif</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>20</td>
-        <td>
-            <a href="chapter-20.html">
-                <h3>Other : <strong>Participe Passé</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>21</td>
-        <td>
-            <a href="chapter-21.html">
-                <h3>Other : <strong>Infinitif Présent &amp; Passé</strong></h3>
-            </a>
-        </td>
-    </tr>
-    <tr>    
 
-    </tr>
-    <!-- <tr>
-        <td>22</td>
-        <td>
-            <a href="#page-end">
-                <h3> <><><><><><><><> <strong>Final</strong> <><><><><><><><> </h3>
-            </a>
-        </td>
-    </tr>     -->
-</tbody>
-</table>
-<hr>
-</div>
+            <!-- ═══════════════ MASTER ROADMAP ═══════════════ -->
+            <div class="section-heading">
+                <div class="sh-icon blue">📋</div>
+                <div>
+                    <h2>Master Roadmap</h2>
+                    <p>21 tenses across 5 moods — click any card to jump to its chapter</p>
+                </div>
+            </div>
 
-<div class="px-2"><h1>Complete Guide to French Tenses</h1>
-<table><thead><tr><th>#</th><th>Mood : Tense</th><th>When to Use</th><th>How to Form</th><th>Example</th></tr></thead><tbody><tr><td><strong>1</strong></td><td><strong>Indicatif : Présent</strong></td><td>Current actions, habits, general truths, ongoing states</td><td>Stem + endings (-e/-es/-e/-ons/-ez/-ent for -ER verbs)</td><td><em>Je <strong>parle</strong> français tous les jours.</em> (I speak French every day.)</td></tr><tr><td><strong>2</strong></td><td><strong>Indicatif : Passé Composé</strong></td><td>Completed actions in the past, with clear result or specific time</td><td><strong>avoir/être</strong> (présent) + participe passé</td><td><em>J'<strong>ai mangé</strong> une pomme ce matin.</em> (I ate an apple this morning.)</td></tr><tr><td><strong>3</strong></td><td><strong>Indicatif : Imparfait</strong></td><td>Past habits, descriptions, background actions, ongoing past states</td><td>Stem (nous form présent) + -ais/-ais/-ait/-ions/-iez/-aient</td><td><em>Quand j'étais petit, je <strong>jouais</strong> dehors.</em> (When I was little, I used to play outside.)</td></tr><tr><td><strong>4</strong></td><td><strong>Indicatif : Plus-que-parfait</strong></td><td>Action completed <strong>before</strong> another past action (past of the past)</td><td><strong>avoir/être</strong> (imparfait) + participe passé</td><td><em>Il <strong>avait déjà parti</strong> quand je suis arrivé.</em> (He had already left when I arrived.)</td></tr><tr><td><strong>5</strong></td><td><strong>Indicatif : Passé Simple</strong></td><td>Completed past actions in <strong>literary/formal writing</strong> (replaces passé composé)</td><td>Stem + special endings (-ai/-as/-a/-âmes/-âtes/-èrent for -ER)</td><td><em>Il <strong>parla</strong> longuement du sujet.</em> (He spoke at length about the subject.)</td></tr><tr><td><strong>6</strong></td><td><strong>Indicatif : Passé Antérieur</strong></td><td>Action completed just before another past action — <strong>literary</strong> (replaces plus-que-parfait in formal texts)</td><td><strong>avoir/être</strong> (passé simple) + participe passé</td><td><em>Dès qu'il <strong>eut fini</strong>, il sortit.</em> (As soon as he had finished, he went out.)</td></tr><tr><td><strong>7</strong></td><td><strong>Indicatif : Futur Proche</strong></td><td>Immediate/near future, plans about to happen, strong intention</td><td><strong>aller</strong> (présent) + infinitif</td><td><em>Je <strong>vais partir</strong> dans cinq minutes.</em> (I am going to leave in five minutes.)</td></tr><tr><td><strong>8</strong></td><td><strong>Indicatif : Futur Simple</strong></td><td>Future actions, predictions, promises, formal plans</td><td>Infinitif + -ai/-as/-a/-ons/-ez/-ont</td><td><em>Demain, je <strong>voyagerai</strong> en Italie.</em> (Tomorrow, I will travel to Italy.)</td></tr><tr><td><strong>9</strong></td><td><strong>Indicatif : Futur Antérieur</strong></td><td>Action that <strong>will have been completed</strong> before another future action</td><td><strong>avoir/être</strong> (futur simple) + participe passé</td><td><em>J'<strong>aurai terminé</strong> avant midi.</em> (I will have finished before noon.)</td></tr><tr><td><strong>10</strong></td><td><strong>Indicatif : Passé Récent</strong></td><td>Action that <strong>just</strong> happened (recent past)</td><td><strong>venir de</strong> (présent) + infinitif</td><td><em>Je <strong>viens de manger</strong>.</em> (I just ate.)</td></tr><tr><td><strong>11</strong></td><td><strong>Conditionnel : Conditionnel Présent</strong></td><td>Hypothetical situations, polite requests, wishes, unconfirmed info</td><td>Infinitif + imparfait endings (-ais/-ais/-ait/-ions/-iez/-aient)</td><td><em>Je <strong>voudrais</strong> un café, s'il vous plaît.</em> (I would like a coffee, please.)</td></tr><tr><td><strong>12</strong></td><td><strong>Conditionnel : Conditionnel Passé</strong></td><td>Hypothetical past (regret, what would have happened), unconfirmed past info</td><td><strong>avoir/être</strong> (conditionnel présent) + participe passé</td><td><em>J'<strong>aurais aimé</strong> venir à la fête.</em> (I would have liked to come to the party.)</td></tr><tr><td><strong>13</strong></td><td><strong>Subjonctif : Subjonctif Présent</strong></td><td>After expressions of doubt, emotion, wish, necessity, obligation (que + subj.)</td><td>Stem (ils form présent) + -e/-es/-e/-ions/-iez/-ent</td><td><em>Il faut que tu <strong>fasses</strong> tes devoirs.</em> (You must do your homework.)</td></tr><tr><td><strong>14</strong></td><td><strong>Subjonctif : Subjonctif Passé</strong></td><td>Same triggers as subj. présent, but for a <strong>completed</strong> action</td><td><strong>avoir/être</strong> (subjonctif présent) + participe passé</td><td><em>Je suis content qu'il <strong>ait réussi</strong>.</em> (I am glad he succeeded.)</td></tr><tr><td><strong>15</strong></td><td><strong>Subjonctif : Subjonctif Imparfait</strong></td><td><strong>Literary</strong> — same triggers, but when main verb is in a past tense (concordance des temps)</td><td>Passé simple stem + special endings (-sse/-sses/-^t/-ssions/-ssiez/-ssent)</td><td><em>Il fallait qu'il <strong>parlât</strong> au roi.</em> (It was necessary that he speak to the king.)</td></tr><tr><td><strong>16</strong></td><td><strong>Subjonctif : Subjonctif Plus-que-parfait</strong></td><td><strong>Literary</strong> — completed action before another past action in subjunctive context</td><td><strong>avoir/être</strong> (subjonctif imparfait) + participe passé</td><td><em>Je doutais qu'il <strong>eût compris</strong>.</em> (I doubted that he had understood.)</td></tr><tr><td><strong>17</strong></td><td><strong>Impératif : Impératif Présent</strong></td><td>Direct commands, orders, advice, instructions (tu/nous/vous)</td><td>Présent form without subject pronoun (drop -s for -ER tu form)</td><td><em><strong>Mange</strong> tes légumes !</em> (Eat your vegetables!)</td></tr><tr><td><strong>18</strong></td><td><strong>Impératif : Impératif Passé</strong></td><td>Command about something that <strong>must be completed</strong> by a deadline (very rare)</td><td><strong>avoir/être</strong> (impératif présent) + participe passé</td><td><em><strong>Aie terminé</strong> avant ce soir !</em> (Have it finished by tonight!)</td></tr><tr><td><strong>19</strong></td><td><strong>Participe Présent &amp; Gérondif</strong></td><td><strong>Participe</strong> : describes simultaneous action / adjective-like use. <strong>Gérondif (en +)</strong> : while/by doing something</td><td>Stem (nous form) + <strong>-ant</strong>; Gérondif = <strong>en</strong> + participe présent</td><td><em>Il étudie <strong>en écoutant</strong> de la musique.</em> (He studies while listening to music.)</td></tr><tr><td><strong>20</strong></td><td><strong>Participe Passé</strong></td><td>Used in compound tenses, as adjective, or in passive voice</td><td>-ER → -é, -IR → -i, -RE → -u (+ irregulars); agrees in gender/number when needed</td><td><em>La porte est <strong>fermée</strong>.</em> (The door is closed.)</td></tr><tr><td><strong>21</strong></td><td><strong>Infinitif Présent &amp; Passé</strong></td><td><strong>Présent</strong> : after prepositions, other verbs, as noun. <strong>Passé</strong> : after a completed action</td><td><strong>Présent</strong> : base form (parler). <strong>Passé</strong> : avoir/être (infinitif) + participe passé</td><td><em>Après <strong>avoir mangé</strong>, il est sorti.</em> (After having eaten, he went out.)</td></tr></tbody></table>
-<hr>
-<h2>Quick Visual Summary of Timeline</h2>
-<div class="relative"><pre style="color: rgb(57, 58, 52); font-family: Consolas, &quot;Bitstream Vera Sans Mono&quot;, &quot;Courier New&quot;, Courier, monospace; direction: ltr; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; font-size: 0.9em; line-height: 1.2em; tab-size: 4; hyphens: none; padding: 1em; margin: 0.5em 0px; overflow: auto; border: 1px solid rgb(221, 221, 221); background-color: white;"><code style="white-space: pre-wrap; word-break: break-all;"><span>PAST ◄──────────────────────────────────────────────► FUTURE
-</span>
-  Passé Antérieur / Plus-que-parfait     Futur Antérieur
-         ↓                                     ↓
-    (before another past)              (before another future)
+            <!-- Indicatif -->
+            <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#002395;margin:20px 0 10px 4px;">Indicatif — 10 tenses</p>
+            <div class="roadmap-grid">
+                <a href="chapter-1.html" class="roadmap-card mood-indicatif"><span class="rc-num">1</span><div class="rc-text"><h3>Présent</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-2.html" class="roadmap-card mood-indicatif"><span class="rc-num">2</span><div class="rc-text"><h3>Passé Composé</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-3.html" class="roadmap-card mood-indicatif"><span class="rc-num">3</span><div class="rc-text"><h3>Imparfait</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-4.html" class="roadmap-card mood-indicatif"><span class="rc-num">4</span><div class="rc-text"><h3>Plus-que-parfait</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-5.html" class="roadmap-card mood-indicatif"><span class="rc-num">5</span><div class="rc-text"><h3>Passé Simple</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-6.html" class="roadmap-card mood-indicatif"><span class="rc-num">6</span><div class="rc-text"><h3>Passé Antérieur</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-7.html" class="roadmap-card mood-indicatif"><span class="rc-num">7</span><div class="rc-text"><h3>Futur Proche</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-8.html" class="roadmap-card mood-indicatif"><span class="rc-num">8</span><div class="rc-text"><h3>Futur Simple</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-9.html" class="roadmap-card mood-indicatif"><span class="rc-num">9</span><div class="rc-text"><h3>Futur Antérieur</h3><span class="rc-mood">Indicatif</span></div></a>
+                <a href="chapter-10.html" class="roadmap-card mood-indicatif"><span class="rc-num">10</span><div class="rc-text"><h3>Passé Récent</h3><span class="rc-mood">Indicatif</span></div></a>
+            </div>
 
-  Passé Simple / Passé Composé          Futur Simple
-         ↓                                     ↓
-    (completed past action)            (future action)
+            <!-- Conditionnel -->
+            <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#5b21b6;margin:20px 0 10px 4px;">Conditionnel — 2 tenses</p>
+            <div class="roadmap-grid">
+                <a href="chapter-11.html" class="roadmap-card mood-conditionnel"><span class="rc-num">11</span><div class="rc-text"><h3>Conditionnel Présent</h3><span class="rc-mood">Conditionnel</span></div></a>
+                <a href="chapter-12.html" class="roadmap-card mood-conditionnel"><span class="rc-num">12</span><div class="rc-text"><h3>Conditionnel Passé</h3><span class="rc-mood">Conditionnel</span></div></a>
+            </div>
 
-  Imparfait                             Futur Proche
-         ↓                                     ↓
-    (ongoing/habitual past)            (near future)
+            <!-- Subjonctif -->
+            <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#0d9488;margin:20px 0 10px 4px;">Subjonctif — 4 tenses</p>
+            <div class="roadmap-grid">
+                <a href="chapter-13.html" class="roadmap-card mood-subjonctif"><span class="rc-num">13</span><div class="rc-text"><h3>Subjonctif Présent</h3><span class="rc-mood">Subjonctif</span></div></a>
+                <a href="chapter-14.html" class="roadmap-card mood-subjonctif"><span class="rc-num">14</span><div class="rc-text"><h3>Subjonctif Passé</h3><span class="rc-mood">Subjonctif</span></div></a>
+                <a href="chapter-15.html" class="roadmap-card mood-subjonctif"><span class="rc-num">15</span><div class="rc-text"><h3>Subjonctif Imparfait</h3><span class="rc-mood">Subjonctif</span></div></a>
+                <a href="chapter-16.html" class="roadmap-card mood-subjonctif"><span class="rc-num">16</span><div class="rc-text"><h3>Subjonctif Plus-que-parfait</h3><span class="rc-mood">Subjonctif</span></div></a>
+            </div>
 
-  Passé Récent ← PRÉSENT → Futur Proche
-       (just happened)    (about to happen)</code></pre></div>
-<h2>Key Auxiliary Verb Rule</h2>
-<table><thead><tr><th>Auxiliary</th><th>Used With</th></tr></thead><tbody><tr><td><strong>Avoir</strong></td><td>Most verbs</td></tr><tr><td><strong>Être</strong></td><td>17 movement/state verbs (aller, venir, naître, mourir, etc.) + all <strong>reflexive</strong> verbs</td></tr></tbody></table>
-<blockquote>
-<p><strong>Agreement Rule</strong>: With <strong>être</strong>, the participe passé agrees with the <strong>subject</strong>. With <strong>avoir</strong>, it agrees with the <strong>direct object</strong> only if it comes <strong>before</strong> the verb.</p>
-</blockquote>
-<hr>
-</div>
-</div>
+            <!-- Impératif -->
+            <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#ED2939;margin:20px 0 10px 4px;">Impératif — 2 tenses</p>
+            <div class="roadmap-grid">
+                <a href="chapter-17.html" class="roadmap-card mood-imperatif"><span class="rc-num">17</span><div class="rc-text"><h3>Impératif Présent</h3><span class="rc-mood">Impératif</span></div></a>
+                <a href="chapter-18.html" class="roadmap-card mood-imperatif"><span class="rc-num">18</span><div class="rc-text"><h3>Impératif Passé</h3><span class="rc-mood">Impératif</span></div></a>
+            </div>
 
+            <!-- Other -->
+            <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#d97706;margin:20px 0 10px 4px;">Other Forms — 3 tenses</p>
+            <div class="roadmap-grid">
+                <a href="chapter-19.html" class="roadmap-card mood-other"><span class="rc-num">19</span><div class="rc-text"><h3>Participe Présent &amp; Gérondif</h3><span class="rc-mood">Other</span></div></a>
+                <a href="chapter-20.html" class="roadmap-card mood-other"><span class="rc-num">20</span><div class="rc-text"><h3>Participe Passé</h3><span class="rc-mood">Other</span></div></a>
+                <a href="chapter-21.html" class="roadmap-card mood-other"><span class="rc-num">21</span><div class="rc-text"><h3>Infinitif Présent &amp; Passé</h3><span class="rc-mood">Other</span></div></a>
+            </div>
 
-<!-- ========== data-index="1" ========== -->
+            <!-- ═══════════════ QUICK REFERENCE TABLE ═══════════════ -->
+            <div class="section-heading">
+                <div class="sh-icon red">📊</div>
+                <div>
+                    <h2>Quick Reference — All 21 Tenses at a Glance</h2>
+                    <p>When to use, how to form, and an example for each tense</p>
+                </div>
+            </div>
 
-        </div>
+            <div class="ref-table-wrap">
+                <table class="ref-table">
+                    <thead>
+                        <tr><th>#</th><th>Mood : Tense</th><th>When to Use</th><th>How to Form</th><th>Example</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="t-num">1</td><td class="t-tense">Indicatif : Présent</td><td class="t-use">Current actions, habits, general truths, ongoing states</td><td class="t-form">Stem + endings (-e/-es/-e/-ons/-ez/-ent for -ER)</td><td class="t-ex">Je <strong>parle</strong> français tous les jours.</td></tr>
+                        <tr><td class="t-num">2</td><td class="t-tense">Indicatif : Passé Composé</td><td class="t-use">Completed actions in the past, with clear result or specific time</td><td class="t-form">avoir/être (présent) + participe passé</td><td class="t-ex">J'<strong>ai mangé</strong> une pomme ce matin.</td></tr>
+                        <tr><td class="t-num">3</td><td class="t-tense">Indicatif : Imparfait</td><td class="t-use">Past habits, descriptions, background actions, ongoing past states</td><td class="t-form">Stem (nous présent) + -ais/-ais/-ait/-ions/-iez/-aient</td><td class="t-ex">Quand j'étais petit, je <strong>jouais</strong> dehors.</td></tr>
+                        <tr><td class="t-num">4</td><td class="t-tense">Indicatif : Plus-que-parfait</td><td class="t-use">Action completed before another past action</td><td class="t-form">avoir/être (imparfait) + participe passé</td><td class="t-ex">Il <strong>avait déjà parti</strong> quand je suis arrivé.</td></tr>
+                        <tr><td class="t-num">5</td><td class="t-tense">Indicatif : Passé Simple</td><td class="t-use">Completed past actions in literary/formal writing</td><td class="t-form">Stem + special endings (-ai/-as/-a/-âmes/-âtes/-èrent)</td><td class="t-ex">Il <strong>parla</strong> longuement du sujet.</td></tr>
+                        <tr><td class="t-num">6</td><td class="t-tense">Indicatif : Passé Antérieur</td><td class="t-use">Action completed just before another past action — literary</td><td class="t-form">avoir/être (passé simple) + participe passé</td><td class="t-ex">Dès qu'il <strong>eut fini</strong>, il sortit.</td></tr>
+                        <tr><td class="t-num">7</td><td class="t-tense">Indicatif : Futur Proche</td><td class="t-use">Immediate/near future, plans about to happen</td><td class="t-form">aller (présent) + infinitif</td><td class="t-ex">Je <strong>vais partir</strong> dans cinq minutes.</td></tr>
+                        <tr><td class="t-num">8</td><td class="t-tense">Indicatif : Futur Simple</td><td class="t-use">Future actions, predictions, promises, formal plans</td><td class="t-form">Infinitif + -ai/-as/-a/-ons/-ez/-ont</td><td class="t-ex">Demain, je <strong>voyagerai</strong> en Italie.</td></tr>
+                        <tr><td class="t-num">9</td><td class="t-tense">Indicatif : Futur Antérieur</td><td class="t-use">Action that will have been completed before another future action</td><td class="t-form">avoir/être (futur simple) + participe passé</td><td class="t-ex">J'<strong>aurai terminé</strong> avant midi.</td></tr>
+                        <tr><td class="t-num">10</td><td class="t-tense">Indicatif : Passé Récent</td><td class="t-use">Action that just happened (recent past)</td><td class="t-form">venir de (présent) + infinitif</td><td class="t-ex">Je <strong>viens de manger</strong>.</td></tr>
+                        <tr><td class="t-num">11</td><td class="t-tense">Conditionnel : Présent</td><td class="t-use">Hypothetical situations, polite requests, wishes</td><td class="t-form">Infinitif + imparfait endings</td><td class="t-ex">Je <strong>voudrais</strong> un café, s'il vous plaît.</td></tr>
+                        <tr><td class="t-num">12</td><td class="t-tense">Conditionnel : Passé</td><td class="t-use">Hypothetical past, regret, what would have happened</td><td class="t-form">avoir/être (conditionnel) + participe passé</td><td class="t-ex">J'<strong>aurais aimé</strong> venir à la fête.</td></tr>
+                        <tr><td class="t-num">13</td><td class="t-tense">Subjonctif : Présent</td><td class="t-use">After doubt, emotion, wish, necessity (que + subj.)</td><td class="t-form">Stem (ils présent) + -e/-es/-e/-ions/-iez/-ent</td><td class="t-ex">Il faut que tu <strong>fasses</strong> tes devoirs.</td></tr>
+                        <tr><td class="t-num">14</td><td class="t-tense">Subjonctif : Passé</td><td class="t-use">Same triggers as subj. présent, but completed action</td><td class="t-form">avoir/être (subj. présent) + participe passé</td><td class="t-ex">Je suis content qu'il <strong>ait réussi</strong>.</td></tr>
+                        <tr><td class="t-num">15</td><td class="t-tense">Subjonctif : Imparfait</td><td class="t-use">Literary — same triggers, main verb in past tense</td><td class="t-form">Passé simple stem + -sse/-sses/-^t/-ssions/-ssiez/-ssent</td><td class="t-ex">Il fallait qu'il <strong>parlât</strong> au roi.</td></tr>
+                        <tr><td class="t-num">16</td><td class="t-tense">Subjonctif : Plus-que-parfait</td><td class="t-use">Literary — completed action in subjunctive context</td><td class="t-form">avoir/être (subj. imparfait) + participe passé</td><td class="t-ex">Je doutais qu'il <strong>eût compris</strong>.</td></tr>
+                        <tr><td class="t-num">17</td><td class="t-tense">Impératif : Présent</td><td class="t-use">Direct commands, orders, advice, instructions</td><td class="t-form">Présent form without subject pronoun</td><td class="t-ex"><strong>Mange</strong> tes légumes !</td></tr>
+                        <tr><td class="t-num">18</td><td class="t-tense">Impératif : Passé</td><td class="t-use">Command about something that must be completed by a deadline</td><td class="t-form">avoir/être (impératif) + participe passé</td><td class="t-ex"><strong>Aie terminé</strong> avant ce soir !</td></tr>
+                        <tr><td class="t-num">19</td><td class="t-tense">Participe Présent &amp; Gérondif</td><td class="t-use">Simultaneous action / while doing something</td><td class="t-form">Stem (nous form) + -ant; Gérondif = en + participe présent</td><td class="t-ex">Il étudie <strong>en écoutant</strong> de la musique.</td></tr>
+                        <tr><td class="t-num">20</td><td class="t-tense">Participe Passé</td><td class="t-use">Compound tenses, adjective, passive voice</td><td class="t-form">-ER→-é, -IR→-i, -RE→-u (+ irregulars)</td><td class="t-ex">La porte est <strong>fermée</strong>.</td></tr>
+                        <tr><td class="t-num">21</td><td class="t-tense">Infinitif Présent &amp; Passé</td><td class="t-use">After prepositions, other verbs, as noun</td><td class="t-form">Présent: base form. Passé: avoir/être + participe passé</td><td class="t-ex">Après <strong>avoir mangé</strong>, il est sorti.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ═══════════════ TIMELINE VISUAL ═══════════════ -->
+            <div class="section-heading">
+                <div class="sh-icon teal">⏳</div>
+                <div>
+                    <h2>Visual Timeline of French Tenses</h2>
+                    <p>See how all tenses relate to each other across time</p>
+                </div>
+            </div>
+
+            <div class="timeline-box">
+                <h3>PAST ◄────────────── PRÉSENT ──────────────► FUTURE</h3>
+                <div class="timeline-track">
+                    <div class="timeline-col">
+                        <div class="timeline-col-title past">◄ Past</div>
+                        <div class="tl-item"><strong>Passé Antérieur / Plus-que-parfait</strong><span class="tl-desc">before another past action</span></div>
+                        <div class="tl-item"><strong>Passé Simple / Passé Composé</strong><span class="tl-desc">completed past action</span></div>
+                        <div class="tl-item"><strong>Imparfait</strong><span class="tl-desc">ongoing / habitual past</span></div>
+                        <div class="tl-item"><strong>Passé Récent</strong><span class="tl-desc">just happened</span></div>
+                    </div>
+                    <div class="timeline-col">
+                        <div class="timeline-col-title present">● Present</div>
+                        <div class="tl-item"><strong>Présent</strong><span class="tl-desc">current actions, habits, truths</span></div>
+                    </div>
+                    <div class="timeline-col">
+                        <div class="timeline-col-title future">Future ►</div>
+                        <div class="tl-item"><strong>Futur Proche</strong><span class="tl-desc">about to happen</span></div>
+                        <div class="tl-item"><strong>Futur Simple</strong><span class="tl-desc">future action</span></div>
+                        <div class="tl-item"><strong>Futur Antérieur</strong><span class="tl-desc">before another future action</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════════════ AUXILIARY VERBS ═══════════════ -->
+            <div class="section-heading">
+                <div class="sh-icon red">🔑</div>
+                <div>
+                    <h2>Key Auxiliary Verb Rule</h2>
+                    <p>The foundation of all compound tenses</p>
+                </div>
+            </div>
+
+            <div class="aux-grid">
+                <div class="aux-card avoir">
+                    <h4>Avoir</h4>
+                    <p>Used with <strong>most verbs</strong> — the default auxiliary for compound tenses.</p>
+                </div>
+                <div class="aux-card etre">
+                    <h4>Être</h4>
+                    <p>Used with <strong>17 movement/state verbs</strong> (aller, venir, naître, mourir, etc.) + all <strong>reflexive</strong> verbs.</p>
+                </div>
+            </div>
+            <div class="agreement-note">
+                <strong>Agreement Rule:</strong> With <strong>être</strong>, the participe passé agrees with the <strong>subject</strong>. With <strong>avoir</strong>, it agrees with the <strong>direct object</strong> only if it comes <strong>before</strong> the verb.
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- ═══════════════ GOLDEN FORMULAS SECTION ═══════════════ -->
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <div class="section-heading">
+                <div class="sh-icon amber">✨</div>
+                <div>
+                    <h2>Golden Formulas — Master Conjugation Reference</h2>
+                    <p>Every conjugation rule distilled into clear, step-by-step formulas</p>
+                </div>
+            </div>
+
+            <p class="gf-intro">Almost every French tense derives from just <strong>two master stems</strong>. Learn these two patterns and you unlock the entire conjugation system.</p>
+
+            <!-- Two Master Stems -->
+            <div class="gf-stems">
+                <div class="gf-stem-card a">
+                    <div class="gf-stem-label">Stem A — Most Tenses</div>
+                    <div class="gf-stem-val">nous présent → remove -ons</div>
+                    <div class="gf-stem-uses">Used for: Imparfait, Subjonctif présent (nous/vous), Gérondif, Participe présent</div>
+                </div>
+                <div class="gf-stem-card b">
+                    <div class="gf-stem-label">Stem B — Future Family</div>
+                    <div class="gf-stem-val">infinitive (or irregular futur stem)</div>
+                    <div class="gf-stem-uses">Used for: Futur simple, Conditionnel présent</div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="gf-legend">
+                <div class="gf-legend-item"><div class="gf-legend-dot simple"></div> Simple tenses — no auxiliary</div>
+                <div class="gf-legend-item"><div class="gf-legend-dot compound"></div> Compound tenses — past participle required</div>
+            </div>
+
+            <!-- ═══ SIMPLE TENSES ═══ -->
+            <div class="gf-group">
+                <div class="gf-group-header simple">
+                    <div class="gf-group-icon">S</div>
+                    <div>
+                        <div class="gf-group-title">Simple Tenses</div>
+                        <div class="gf-group-sub">Conjugate the verb directly — no auxiliary, no past participle</div>
+                    </div>
+                </div>
+                <div class="gf-cards">
+
+                    <!-- Présent -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Présent</div>
+                            <div class="gf-tense-sub">Present indicative</div>
+                            <div class="gf-formula blue">Base endings added to stem — this is the foundation of everything else</div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> -ER: <code>-e -es -e -ons -ez -ent</code></li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> -IR: <code>-is -is -it -issons -issez -issent</code></li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> -RE: <code>-s -s — -ons -ez -ent</code></li>
+                            </ol>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">je parle</span>, nous parlons</span>
+                        </div>
+                    </div>
+
+                    <!-- Imparfait -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Imparfait</div>
+                            <div class="gf-tense-sub">Imperfect</div>
+                            <div class="gf-formula blue"><code>Stem A + -ais/-ais/-ait/-ions/-iez/-aient</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> nous présent form</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> remove <code>-ons</code> → stem</li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> add imparfait endings</li>
+                            </ol>
+                            <span class="gf-warn">⚠ Exception: être → stem "ét-" only</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">nous parl<b>ons</b> → parl- → <span class="hl">je parlais</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Futur Simple -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Futur Simple</div>
+                            <div class="gf-tense-sub">Simple future</div>
+                            <div class="gf-formula blue"><code>Stem B + -ai/-as/-a/-ons/-ez/-ont</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> use the infinitive as stem</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> -RE verbs: drop final <code>-e</code></li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> add futur endings</li>
+                            </ol>
+                            <span class="gf-warn">⚠ Irregular: être→ser- avoir→aur- aller→ir- faire→fer- venir→viendr- pouvoir→pourr-</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">je parlerai</span>, tu parleras</span>
+                        </div>
+                    </div>
+
+                    <!-- Conditionnel Présent -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Conditionnel Présent</div>
+                            <div class="gf-tense-sub">Present conditional</div>
+                            <div class="gf-formula blue"><code>Futur stem + imparfait endings</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> same stem as futur simple</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> add <code>-ais/-ais/-ait/-ions/-iez/-aient</code></li>
+                            </ol>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">je parlerais</span> · être → <span class="hl">je serais</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Subjonctif Présent -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Subjonctif Présent</div>
+                            <div class="gf-tense-sub">Present subjunctive</div>
+                            <div class="gf-formula blue"><code>ils/elles présent stem + -e/-es/-e/-ions/-iez/-ent</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> ils/elles présent form</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> remove <code>-ent</code> → stem</li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> nous/vous: use Stem A instead</li>
+                            </ol>
+                            <span class="gf-warn">⚠ Irregular: être→sois avoir→aie aller→aille faire→fasse pouvoir→puisse savoir→sache</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">ils parl<b>ent</b> → parl- → <span class="hl">que je parle</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Passé Simple -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Passé Simple</div>
+                            <div class="gf-tense-sub">Simple past — literary only</div>
+                            <div class="gf-formula blue">Separate endings per verb group — literary/formal writing</div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> -ER: <code>-ai -as -a -âmes -âtes -èrent</code></li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> -IR/-RE: <code>-is -is -it -îmes -îtes -irent</code></li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> Irreg: <code>-us -us -ut -ûmes -ûtes -urent</code></li>
+                            </ol>
+                            <span class="gf-warn">⚠ Replaced by passé composé in everyday speech</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">je parlai</span> · avoir → <span class="hl">j'eus</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Impératif -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Impératif</div>
+                            <div class="gf-tense-sub">Imperative</div>
+                            <div class="gf-formula blue"><code>Présent (tu/nous/vous) — drop subject pronoun</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> take présent tu/nous/vous forms</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> -ER verbs: drop the <code>-s</code> from tu form</li>
+                            </ol>
+                            <span class="gf-warn">⚠ Irregular: être→sois avoir→aie savoir→sache</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">Parle !</span> Parlons ! Parlez !</span>
+                        </div>
+                    </div>
+
+                    <!-- Gérondif -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Gérondif</div>
+                            <div class="gf-tense-sub">Gerund — "while doing"</div>
+                            <div class="gf-formula blue"><code>en + Stem A + -ant</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> nous présent → remove <code>-ons</code></li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> add <code>-ant</code>, precede with <code>en</code></li>
+                            </ol>
+                            <span class="gf-warn">⚠ Irregular: être→étant avoir→ayant savoir→sachant</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">nous parlons → parl- → <span class="hl">en parlant</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Subjonctif Imparfait -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Subjonctif Imparfait</div>
+                            <div class="gf-tense-sub">Imperfect subjunctive — literary only</div>
+                            <div class="gf-formula blue"><code>Passé simple tu stem + -sse/-sses/-^t/-ssions/-ssiez/-ssent</code></div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> take passé simple tu form</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> remove <code>-s</code> → stem</li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> add literary endings</li>
+                            </ol>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">tu parlas → parla- → <span class="hl">qu'il parlât</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Participe Passé -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Participe Passé</div>
+                            <div class="gf-tense-sub">Past participle formation</div>
+                            <div class="gf-formula blue">The building block of all compound tenses</div>
+                            <ol class="gf-steps">
+                                <li class="gf-step"><span class="gf-step-num blue">1</span> -ER verbs → drop -ER, add <code>-é</code> (parler → parlé)</li>
+                                <li class="gf-step"><span class="gf-step-num blue">2</span> -IR verbs → drop -IR, add <code>-i</code> (finir → fini)</li>
+                                <li class="gf-step"><span class="gf-step-num blue">3</span> -RE verbs → drop -RE, add <code>-u</code> (vendre → vendu)</li>
+                            </ol>
+                            <span class="gf-warn">⚠ Irregulars: être→été, avoir→eu, faire→fait, prendre→pris, voir→vu, venir→venu, dire→dit</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">parlé</span> · finir → <span class="hl">fini</span> · vendre → <span class="hl">vendu</span></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══ COMPOUND TENSES ═══ -->
+            <div class="gf-group">
+                <div class="gf-group-header compound">
+                    <div class="gf-group-icon">C</div>
+                    <div>
+                        <div class="gf-group-title">Compound Tenses</div>
+                        <div class="gf-group-sub">Auxiliary (avoir / être) conjugated in a tense + past participle</div>
+                    </div>
+                </div>
+
+                <div class="gf-pp-note">
+                    Past participle rule: -ER → <b>-é</b> · -IR → <b>-i</b> · -RE → <b>-u</b> · Irregulars: être→été, avoir→eu, faire→fait, prendre→pris, voir→vu, venir→venu, dire→dit
+                </div>
+
+                <div class="gf-cards">
+
+                    <!-- Passé Composé -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Passé Composé</div>
+                            <div class="gf-tense-sub">Compound past</div>
+                            <div class="gf-formula purple"><code>avoir/être (présent) + past participle</code></div>
+                            <span class="gf-warn">⚠ Verbs of movement + reflexives → être · agree in gender/number</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">j'ai parlé</span> · aller → <span class="hl">je suis allé(e)</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Plus-que-parfait -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Plus-que-parfait</div>
+                            <div class="gf-tense-sub">Pluperfect — "had done"</div>
+                            <div class="gf-formula purple"><code>avoir/être (imparfait) + past participle</code></div>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">j'avais parlé</span> · aller → <span class="hl">j'étais allé(e)</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Futur Antérieur -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Futur Antérieur</div>
+                            <div class="gf-tense-sub">Future perfect — "will have done"</div>
+                            <div class="gf-formula purple"><code>avoir/être (futur simple) + past participle</code></div>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">j'aurai parlé</span> · partir → <span class="hl">je serai parti(e)</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Conditionnel Passé -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Conditionnel Passé</div>
+                            <div class="gf-tense-sub">Past conditional — "would have done"</div>
+                            <div class="gf-formula purple"><code>avoir/être (conditionnel présent) + past participle</code></div>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">j'aurais parlé</span> · aller → <span class="hl">je serais allé(e)</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Subjonctif Passé -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Subjonctif Passé</div>
+                            <div class="gf-tense-sub">Past subjunctive</div>
+                            <div class="gf-formula purple"><code>avoir/être (subjonctif présent) + past participle</code></div>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">que j'aie parlé</span> · aller → <span class="hl">que je sois allé(e)</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Passé Antérieur -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Passé Antérieur</div>
+                            <div class="gf-tense-sub">Anterior past — literary only</div>
+                            <div class="gf-formula purple"><code>avoir/être (passé simple) + past participle</code></div>
+                            <span class="gf-warn">⚠ Paired only with passé simple in subordinate clauses</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">j'eus parlé</span> · aller → <span class="hl">je fus allé(e)</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Subjonctif Plus-que-parfait -->
+                    <div class="gf-card">
+                        <div class="gf-card-top">
+                            <div class="gf-tense-name">Subjonctif Plus-que-parfait</div>
+                            <div class="gf-tense-sub">Pluperfect subjunctive — literary only</div>
+                            <div class="gf-formula purple"><code>avoir/être (subjonctif imparfait) + past participle</code></div>
+                            <span class="gf-warn">⚠ Found mainly in classic literary texts</span>
+                        </div>
+                        <div class="gf-card-example">
+                            <span class="gf-eg-label">eg</span>
+                            <span class="gf-eg-text">parler → <span class="hl">que j'eusse parlé</span></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ═══════════════ MASTER CHEAT SHEET ═══════════════ -->
+            <div class="section-heading">
+                <div class="sh-icon purple">📝</div>
+                <div>
+                    <h2>Master Cheat Sheet — One-Line Formulas</h2>
+                    <p>The entire French conjugation system in one table</p>
+                </div>
+            </div>
+
+            <div class="cheat-table-wrap">
+                <table class="cheat-table">
+                    <thead>
+                        <tr><th>Tense</th><th>Formula</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="ct-tense">Présent</td><td class="ct-formula">Base endings — memorise directly</td></tr>
+                        <tr><td class="ct-tense">Imparfait</td><td class="ct-formula">NOUS présent stem + (-ais/-ais/-ait/-ions/-iez/-aient)</td></tr>
+                        <tr><td class="ct-tense">Futur simple</td><td class="ct-formula">Infinitive + (-ai/-as/-a/-ons/-ez/-ont)</td></tr>
+                        <tr><td class="ct-tense">Conditionnel présent</td><td class="ct-formula">Futur stem + imparfait endings</td></tr>
+                        <tr><td class="ct-tense">Passé composé</td><td class="ct-formula">avoir/être (présent) + past participle</td></tr>
+                        <tr><td class="ct-tense">Plus-que-parfait</td><td class="ct-formula">avoir/être (imparfait) + past participle</td></tr>
+                        <tr><td class="ct-tense">Futur antérieur</td><td class="ct-formula">avoir/être (futur) + past participle</td></tr>
+                        <tr><td class="ct-tense">Conditionnel passé</td><td class="ct-formula">avoir/être (conditionnel) + past participle</td></tr>
+                        <tr><td class="ct-tense">Subjonctif présent</td><td class="ct-formula">ILS présent stem + (-e/-es/-e/-ions/-iez/-ent)</td></tr>
+                        <tr><td class="ct-tense">Subjonctif passé</td><td class="ct-formula">avoir/être (subj. présent) + past participle</td></tr>
+                        <tr><td class="ct-tense">Subjonctif imparfait <span class="ct-lit">(literary)</span></td><td class="ct-formula">Passé simple TU stem + (-sse/-sses/-^t/-ssions/-ssiez/-ssent)</td></tr>
+                        <tr><td class="ct-tense">Subjonctif plus-que-parfait <span class="ct-lit">(literary)</span></td><td class="ct-formula">avoir/être (subj. imparfait) + past participle</td></tr>
+                        <tr><td class="ct-tense">Passé simple <span class="ct-lit">(literary)</span></td><td class="ct-formula">Stem + (-ai/-as/-a/-âmes/-âtes/-èrent OR -is/-it etc.)</td></tr>
+                        <tr><td class="ct-tense">Passé antérieur <span class="ct-lit">(literary)</span></td><td class="ct-formula">avoir/être (passé simple) + past participle</td></tr>
+                        <tr><td class="ct-tense">Impératif</td><td class="ct-formula">Présent (tu/nous/vous) without pronoun; -ER tu drops -S</td></tr>
+                        <tr><td class="ct-tense">Gérondif</td><td class="ct-formula">en + NOUS présent stem + -ANT</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Final note -->
+            <div class="agreement-note" style="border-left-color:#002395;background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1e3a5f;margin-bottom:48px;">
+                <strong>💡 Key Insight:</strong> All compound tenses are just <strong>AVOIR or ÊTRE in a given tense + past participle</strong>. Once you know one compound tense, you know the pattern for all of them.
+            </div>
+
+        </div><!-- end .content -->
 
         <div class="nav-bar" style="margin-top:0">
             <span class="nav-button prev disabled">← Previous</span>
@@ -267,6 +1154,5 @@
     </div>
 
     <script src="script1.js"></script>
-
 </body>
 </html>
