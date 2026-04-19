@@ -4,105 +4,542 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🇫🇷 Comprehensive Guide to All French Tenses — Table of Contents</title>
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="styles1.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f0f2f5;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0,0,0,0.08);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, #002395 0%, #0a3d91 40%, #ED2939 100%);
+            color: #fff;
+            padding: 32px 40px 28px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            pointer-events: none;
+        }
+        .hero-flag { font-size: 2.2rem; margin-bottom: 6px; display: block; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.25)); }
+        .hero h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 6px; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        .hero p { font-size: 0.92rem; opacity: 0.9; max-width: 580px; margin: 0 auto; line-height: 1.5; }
+
+        /* ── Content area ── */
+        .toc-content { padding: 32px 40px 48px; }
+
+        /* ── Mood group ── */
+        .mood-group { margin-bottom: 32px; }
+        .mood-header {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
+        .mood-header.indicatif   { background: linear-gradient(135deg, #eff6ff, #dbeafe); border: 1px solid #93c5fd; }
+        .mood-header.conditionnel{ background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 1px solid #c4b5fd; }
+        .mood-header.subjonctif  { background: linear-gradient(135deg, #f0fdfa, #ccfbf1); border: 1px solid #5eead4; }
+        .mood-header.imperatif   { background: linear-gradient(135deg, #fef2f2, #fee2e2); border: 1px solid #fca5a5; }
+        .mood-header.other       { background: linear-gradient(135deg, #fffbeb, #fef3c7); border: 1px solid #fcd34d; }
+        .mood-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0;
+        }
+        .mood-icon.indicatif    { background: linear-gradient(135deg, #002395, #1a56db); }
+        .mood-icon.conditionnel { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+        .mood-icon.subjonctif   { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+        .mood-icon.imperatif    { background: linear-gradient(135deg, #ED2939, #ef4444); }
+        .mood-icon.other        { background: linear-gradient(135deg, #d97706, #f59e0b); }
+        .mood-title { font-size: 1.05rem; font-weight: 600; }
+        .mood-title.indicatif    { color: #002395; }
+        .mood-title.conditionnel { color: #5b21b6; }
+        .mood-title.subjonctif   { color: #0d9488; }
+        .mood-title.imperatif    { color: #b91c1c; }
+        .mood-title.other        { color: #92400e; }
+        .mood-sub { font-size: 0.78rem; margin-top: 1px; }
+        .mood-sub.indicatif    { color: #3b82f6; }
+        .mood-sub.conditionnel { color: #7c3aed; }
+        .mood-sub.subjonctif   { color: #14b8a6; }
+        .mood-sub.imperatif    { color: #ef4444; }
+        .mood-sub.other        { color: #d97706; }
+
+        /* ── Chapter cards ── */
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .ch-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .ch-card::before {
+            content: '';
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 4px; border-radius: 12px 0 0 12px;
+        }
+        .ch-card.indicatif::before    { background: #002395; }
+        .ch-card.conditionnel::before { background: #7c3aed; }
+        .ch-card.subjonctif::before   { background: #0d9488; }
+        .ch-card.imperatif::before    { background: #ED2939; }
+        .ch-card.other::before        { background: #d97706; }
+        .ch-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,35,149,0.1);
+            border-color: #93c5fd;
+        }
+        .ch-card-top {
+            padding: 16px 20px 12px;
+            display: flex; align-items: flex-start; gap: 14px;
+            flex: 1;
+        }
+        .ch-num {
+            width: 34px; height: 34px; border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: 700; color: #fff; flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .ch-card.indicatif .ch-num    { background: linear-gradient(135deg, #002395, #1a56db); }
+        .ch-card.conditionnel .ch-num { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+        .ch-card.subjonctif .ch-num   { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+        .ch-card.imperatif .ch-num    { background: linear-gradient(135deg, #ED2939, #ef4444); }
+        .ch-card.other .ch-num        { background: linear-gradient(135deg, #d97706, #f59e0b); }
+        .ch-info h3 {
+            font-size: 0.95rem; font-weight: 600; color: #1e293b;
+            margin: 0 0 2px; line-height: 1.3;
+        }
+        .ch-info .ch-french {
+            font-size: 0.78rem; color: #64748b; font-style: italic;
+            margin-bottom: 6px;
+        }
+        .ch-info .ch-summary {
+            font-size: 0.8rem; color: #475569; line-height: 1.5;
+        }
+        .ch-card-bottom {
+            padding: 8px 20px 10px;
+            background: #f8fafc;
+            border-top: 1px solid #f1f5f9;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .ch-tag {
+            font-size: 0.68rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.04em;
+            padding: 2px 8px; border-radius: 4px;
+        }
+        .ch-tag.simple   { background: #dbeafe; color: #1e40af; }
+        .ch-tag.compound { background: #ede9fe; color: #5b21b6; }
+        .ch-tag.special  { background: #fef3c7; color: #92400e; }
+        .ch-tag.literary { background: #f1f5f9; color: #64748b; }
+
+        /* ── Intro card ── */
+        .intro-card {
+            display: block;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #93c5fd;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+        .intro-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,35,149,0.12);
+        }
+        .intro-card h3 {
+            font-size: 1rem; font-weight: 700; color: #002395;
+            margin: 0 0 4px;
+        }
+        .intro-card p {
+            font-size: 0.85rem; color: #334155; margin: 0; line-height: 1.5;
+        }
+
+        /* ── Footer ── */
+        .toc-footer {
+            text-align: center;
+            padding: 20px 40px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            color: #94a3b8;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 24px 20px 20px; }
+            .hero h1 { font-size: 1.3rem; }
+            .toc-content { padding: 20px 16px 36px; }
+            .chapter-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🇫🇷 French Tenses Guide</h1>
-            <p>Comprehensive Guide to All 21 French Tenses</p>
-        </header>
-        <div class="toc">
-            
-            <a href="chapter-0.html" class="chapter-link">
-                <span class="chapter-num">INTRODUCTION</span>
-                <span class="chapter-title">🇫🇷 COMPREHENSIVE GUIDE TO ALL FRENCH TENSES</span>
+        <div class="hero">
+            <span class="hero-flag"></span>
+            <h1>Comprehensive Guide to All French Tenses</h1>
+            <p>21 tenses across 5 moods — from everyday conversation to literary mastery</p>
+        </div>
+
+        <div class="toc-content">
+
+            <!-- Introduction -->
+            <a href="chapter-0.html" class="intro-card">
+                <h3>📋 Introduction — Master Roadmap &amp; Golden Formulas</h3>
+                <p>Start here: overview of all 21 tenses, visual timeline, auxiliary verb rules, and the complete golden formula reference for every conjugation pattern.</p>
             </a>
-            <a href="chapter-1.html" class="chapter-link">
-                <span class="chapter-num">TENSE 1</span>
-                <span class="chapter-title">TENSE 1: LE PRÉSENT DE L'INDICATIF (Present Tense)</span>
-            </a>
-            <a href="chapter-2.html" class="chapter-link">
-                <span class="chapter-num">TENSE 2</span>
-                <span class="chapter-title">TENSE 2: LE PASSÉ COMPOSÉ (Compound Past / Present Perfect)</span>
-            </a>
-            <a href="chapter-3.html" class="chapter-link">
-                <span class="chapter-num">TENSE 3</span>
-                <span class="chapter-title">TENSE 3: L'IMPARFAIT (The Imperfect Tense)</span>
-            </a>
-            <a href="chapter-4.html" class="chapter-link">
-                <span class="chapter-num">TENSE 4</span>
-                <span class="chapter-title">TENSE 4: LE PLUS-QUE-PARFAIT (The Pluperfect / Past Perfect)</span>
-            </a>
-            <a href="chapter-5.html" class="chapter-link">
-                <span class="chapter-num">TENSE 5</span>
-                <span class="chapter-title">TENSE 5: LE PASSÉ SIMPLE (The Simple Past / Literary Past)</span>
-            </a>
-            <a href="chapter-6.html" class="chapter-link">
-                <span class="chapter-num">TENSE 6</span>
-                <span class="chapter-title">TENSE 6: LE PASSÉ ANTÉRIEUR (The Past Anterior)</span>
-            </a>
-            <a href="chapter-7.html" class="chapter-link">
-                <span class="chapter-num">TENSE 7</span>
-                <span class="chapter-title">TENSE 7: LE FUTUR PROCHE (The Near/Immediate Future)</span>
-            </a>
-            <a href="chapter-8.html" class="chapter-link">
-                <span class="chapter-num">TENSE 8</span>
-                <span class="chapter-title">TENSE 8: LE FUTUR SIMPLE (The Simple Future)</span>
-            </a>
-            <a href="chapter-9.html" class="chapter-link">
-                <span class="chapter-num">TENSE 9</span>
-                <span class="chapter-title">TENSE 9: LE FUTUR ANTÉRIEUR (Future Perfect / Future Anterior)</span>
-            </a>
-            <a href="chapter-10.html" class="chapter-link">
-                <span class="chapter-num">TENSE 10</span>
-                <span class="chapter-title">TENSE 10: LE PASSÉ RÉCENT (Recent Past)</span>
-            </a>
-            <a href="chapter-11.html" class="chapter-link">
-                <span class="chapter-num">TENSE 11</span>
-                <span class="chapter-title">TENSE 11: LE CONDITIONNEL PRÉSENT (Present Conditional)</span>
-            </a>
-            <a href="chapter-12.html" class="chapter-link">
-                <span class="chapter-num">TENSE 12</span>
-                <span class="chapter-title">TENSE 12: LE CONDITIONNEL PASSÉ (Past Conditional)</span>
-            </a>
-            <a href="chapter-13.html" class="chapter-link">
-                <span class="chapter-num">TENSE 13</span>
-                <span class="chapter-title">TENSE 13: LE SUBJONCTIF PRÉSENT (Present Subjunctive)</span>
-            </a>
-            <a href="chapter-14.html" class="chapter-link">
-                <span class="chapter-num">TENSE 14</span>
-                <span class="chapter-title">TENSE 14: LE SUBJONCTIF PASSÉ (Past Subjunctive)</span>
-            </a>
-            <a href="chapter-15.html" class="chapter-link">
-                <span class="chapter-num">TENSE 15</span>
-                <span class="chapter-title">TENSE 15: LE SUBJONCTIF IMPARFAIT (Imperfect Subjunctive)</span>
-            </a>
-            <a href="chapter-16.html" class="chapter-link">
-                <span class="chapter-num">TENSE 16</span>
-                <span class="chapter-title">TENSE 16: LE SUBJONCTIF PLUS-QUE-PARFAIT (Pluperfect Subjunctive)</span>
-            </a>
-            <a href="chapter-17.html" class="chapter-link">
-                <span class="chapter-num">TENSE 17</span>
-                <span class="chapter-title">TENSE 17: L'IMPÉRATIF PRÉSENT (Present Imperative)</span>
-            </a>
-            <a href="chapter-18.html" class="chapter-link">
-                <span class="chapter-num">TENSE 18</span>
-                <span class="chapter-title">TENSE 18: L'IMPÉRATIF PASSÉ (Past Imperative)</span>
-            </a>
-            <a href="chapter-19.html" class="chapter-link">
-                <span class="chapter-num">TENSE 19</span>
-                <span class="chapter-title">TENSE 19: LE PARTICIPE PRÉSENT & LE GÉRONDIF (Present Participle & Gerund)</span>
-            </a>
-            <a href="chapter-20.html" class="chapter-link">
-                <span class="chapter-num">TENSE 20</span>
-                <span class="chapter-title">TENSE 20: LE PARTICIPE PASSÉ (Past Participle)</span>
-            </a>
-            <a href="chapter-21.html" class="chapter-link">
-                <span class="chapter-num">TENSE 21</span>
-                <span class="chapter-title">TENSE 21: L'INFINITIF PRÉSENT & PASSÉ (Present & Past Infinitive) — THE GRAND FINALE 🎆</span>
-            </a>
+
+            <!-- ═══ INDICATIF ═══ -->
+            <div class="mood-group">
+                <div class="mood-header indicatif">
+                    <div class="mood-icon indicatif">I</div>
+                    <div>
+                        <div class="mood-title indicatif">L'Indicatif</div>
+                        <div class="mood-sub indicatif">The mood of facts, reality, and certainty — 10 tenses</div>
+                    </div>
+                </div>
+                <div class="chapter-grid">
+
+                    <a href="chapter-1.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">1</span>
+                            <div class="ch-info">
+                                <h3>Le Présent</h3>
+                                <div class="ch-french">Present Tense</div>
+                                <div class="ch-summary">The foundation of everything. You'll learn -ER, -IR, -RE endings, key irregulars, and when to use present tense for habits, truths, and ongoing actions.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span></div>
+                    </a>
+
+                    <a href="chapter-2.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">2</span>
+                            <div class="ch-info">
+                                <h3>Le Passé Composé</h3>
+                                <div class="ch-french">Compound Past / Present Perfect</div>
+                                <div class="ch-summary">How to talk about completed past actions. You'll master avoir vs être selection, past participle formation, and agreement rules.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span></div>
+                    </a>
+
+                    <a href="chapter-3.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">3</span>
+                            <div class="ch-info">
+                                <h3>L'Imparfait</h3>
+                                <div class="ch-french">The Imperfect Tense</div>
+                                <div class="ch-summary">Describing the past — habits, backgrounds, feelings, and ongoing states. You'll learn the nous-stem trick and how it contrasts with passé composé.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span></div>
+                    </a>
+
+                    <a href="chapter-4.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">4</span>
+                            <div class="ch-info">
+                                <h3>Le Plus-que-parfait</h3>
+                                <div class="ch-french">The Pluperfect / Past Perfect</div>
+                                <div class="ch-summary">The "past of the past" — what had already happened before another past event. Built on imparfait + past participle.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span></div>
+                    </a>
+
+                    <a href="chapter-5.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">5</span>
+                            <div class="ch-info">
+                                <h3>Le Passé Simple</h3>
+                                <div class="ch-french">The Simple Past / Literary Past</div>
+                                <div class="ch-summary">The literary equivalent of passé composé. You'll learn its unique endings and recognize it in novels, history texts, and formal writing.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span><span class="ch-tag literary">Literary</span></div>
+                    </a>
+
+                    <a href="chapter-6.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">6</span>
+                            <div class="ch-info">
+                                <h3>Le Passé Antérieur</h3>
+                                <div class="ch-french">The Past Anterior</div>
+                                <div class="ch-summary">Literary pluperfect — used in subordinate clauses with passé simple. Rare but essential for reading classic French literature.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span><span class="ch-tag literary">Literary</span></div>
+                    </a>
+
+                    <a href="chapter-7.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">7</span>
+                            <div class="ch-info">
+                                <h3>Le Futur Proche</h3>
+                                <div class="ch-french">The Near / Immediate Future</div>
+                                <div class="ch-summary">The easiest way to express the future — just aller + infinitive. You'll learn when to pick this over futur simple in conversation.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag special">Semi-auxiliary</span></div>
+                    </a>
+
+                    <a href="chapter-8.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">8</span>
+                            <div class="ch-info">
+                                <h3>Le Futur Simple</h3>
+                                <div class="ch-french">The Simple Future</div>
+                                <div class="ch-summary">Predictions, promises, and formal plans. You'll learn the infinitive-based formula and the key irregular stems you must memorize.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span></div>
+                    </a>
+
+                    <a href="chapter-9.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">9</span>
+                            <div class="ch-info">
+                                <h3>Le Futur Antérieur</h3>
+                                <div class="ch-french">Future Perfect / Future Anterior</div>
+                                <div class="ch-summary">What will have been done before a future moment. Combines futur simple of the auxiliary + past participle.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span></div>
+                    </a>
+
+                    <a href="chapter-10.html" class="ch-card indicatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">10</span>
+                            <div class="ch-info">
+                                <h3>Le Passé Récent</h3>
+                                <div class="ch-french">Recent Past</div>
+                                <div class="ch-summary">Expressing "just happened" — venir de + infinitive. Simple, conversational, and incredibly useful in everyday French.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag special">Semi-auxiliary</span></div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ═══ CONDITIONNEL ═══ -->
+            <div class="mood-group">
+                <div class="mood-header conditionnel">
+                    <div class="mood-icon conditionnel">C</div>
+                    <div>
+                        <div class="mood-title conditionnel">Le Conditionnel</div>
+                        <div class="mood-sub conditionnel">The mood of hypotheticals, politeness, and "what if" — 2 tenses</div>
+                    </div>
+                </div>
+                <div class="chapter-grid">
+
+                    <a href="chapter-11.html" class="ch-card conditionnel">
+                        <div class="ch-card-top">
+                            <span class="ch-num">11</span>
+                            <div class="ch-info">
+                                <h3>Le Conditionnel Présent</h3>
+                                <div class="ch-french">Present Conditional</div>
+                                <div class="ch-summary">Polite requests, hypothetical scenarios, and wishes. You'll learn the elegant formula: futur stem + imparfait endings.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span></div>
+                    </a>
+
+                    <a href="chapter-12.html" class="ch-card conditionnel">
+                        <div class="ch-card-top">
+                            <span class="ch-num">12</span>
+                            <div class="ch-info">
+                                <h3>Le Conditionnel Passé</h3>
+                                <div class="ch-french">Past Conditional</div>
+                                <div class="ch-summary">Regrets and "would have done" — expressing what could have happened differently. Essential for si-clause mastery.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span></div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ═══ SUBJONCTIF ═══ -->
+            <div class="mood-group">
+                <div class="mood-header subjonctif">
+                    <div class="mood-icon subjonctif">S</div>
+                    <div>
+                        <div class="mood-title subjonctif">Le Subjonctif</div>
+                        <div class="mood-sub subjonctif">The mood of doubt, emotion, desire, and necessity — 4 tenses</div>
+                    </div>
+                </div>
+                <div class="chapter-grid">
+
+                    <a href="chapter-13.html" class="ch-card subjonctif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">13</span>
+                            <div class="ch-info">
+                                <h3>Le Subjonctif Présent</h3>
+                                <div class="ch-french">Present Subjunctive</div>
+                                <div class="ch-summary">The most-used subjunctive form. You'll learn the ils-stem trick, the triggers that demand it (il faut que, je veux que…), and key irregulars.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span></div>
+                    </a>
+
+                    <a href="chapter-14.html" class="ch-card subjonctif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">14</span>
+                            <div class="ch-info">
+                                <h3>Le Subjonctif Passé</h3>
+                                <div class="ch-french">Past Subjunctive</div>
+                                <div class="ch-summary">Same triggers as subjonctif présent, but for completed actions. Auxiliary in subjonctif présent + past participle.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span></div>
+                    </a>
+
+                    <a href="chapter-15.html" class="ch-card subjonctif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">15</span>
+                            <div class="ch-info">
+                                <h3>Le Subjonctif Imparfait</h3>
+                                <div class="ch-french">Imperfect Subjunctive</div>
+                                <div class="ch-summary">Literary concordance des temps — when the main verb is past tense. Built from the passé simple tu-stem with distinctive endings.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span><span class="ch-tag literary">Literary</span></div>
+                    </a>
+
+                    <a href="chapter-16.html" class="ch-card subjonctif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">16</span>
+                            <div class="ch-info">
+                                <h3>Le Subjonctif Plus-que-parfait</h3>
+                                <div class="ch-french">Pluperfect Subjunctive</div>
+                                <div class="ch-summary">The rarest tense — literary completed action in subjunctive context. Found mainly in classic French literature and formal prose.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span><span class="ch-tag literary">Literary</span></div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ═══ IMPÉRATIF ═══ -->
+            <div class="mood-group">
+                <div class="mood-header imperatif">
+                    <div class="mood-icon imperatif">!</div>
+                    <div>
+                        <div class="mood-title imperatif">L'Impératif</div>
+                        <div class="mood-sub imperatif">The mood of commands, orders, and instructions — 2 tenses</div>
+                    </div>
+                </div>
+                <div class="chapter-grid">
+
+                    <a href="chapter-17.html" class="ch-card imperatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">17</span>
+                            <div class="ch-info">
+                                <h3>L'Impératif Présent</h3>
+                                <div class="ch-french">Present Imperative</div>
+                                <div class="ch-summary">Giving commands and advice — tu, nous, vous forms without the subject pronoun. You'll learn the -ER tu-form -s drop rule and irregular imperatives.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag simple">Simple</span></div>
+                    </a>
+
+                    <a href="chapter-18.html" class="ch-card imperatif">
+                        <div class="ch-card-top">
+                            <span class="ch-num">18</span>
+                            <div class="ch-info">
+                                <h3>L'Impératif Passé</h3>
+                                <div class="ch-french">Past Imperative</div>
+                                <div class="ch-summary">Commanding that something be completed by a deadline — very rare but good to recognize. Auxiliary imperative + past participle.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag compound">Compound</span></div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ═══ OTHER FORMS ═══ -->
+            <div class="mood-group">
+                <div class="mood-header other">
+                    <div class="mood-icon other">∞</div>
+                    <div>
+                        <div class="mood-title other">Other Verb Forms</div>
+                        <div class="mood-sub other">Participles, gerunds, and infinitives — the building blocks — 3 chapters</div>
+                    </div>
+                </div>
+                <div class="chapter-grid">
+
+                    <a href="chapter-19.html" class="ch-card other">
+                        <div class="ch-card-top">
+                            <span class="ch-num">19</span>
+                            <div class="ch-info">
+                                <h3>Le Participe Présent &amp; Le Gérondif</h3>
+                                <div class="ch-french">Present Participle &amp; Gerund</div>
+                                <div class="ch-summary">Expressing "while doing" and simultaneous actions. You'll learn the nous-stem + -ant formula and the difference between participe and gérondif (en + -ant).</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag special">Verbal form</span></div>
+                    </a>
+
+                    <a href="chapter-20.html" class="ch-card other">
+                        <div class="ch-card-top">
+                            <span class="ch-num">20</span>
+                            <div class="ch-info">
+                                <h3>Le Participe Passé</h3>
+                                <div class="ch-french">Past Participle</div>
+                                <div class="ch-summary">The key ingredient of every compound tense. You'll master -é/-i/-u rules, irregular participles, and the full agreement system.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag special">Verbal form</span></div>
+                    </a>
+
+                    <a href="chapter-21.html" class="ch-card other">
+                        <div class="ch-card-top">
+                            <span class="ch-num">21</span>
+                            <div class="ch-info">
+                                <h3>L'Infinitif Présent &amp; Passé 🎆</h3>
+                                <div class="ch-french">Present &amp; Past Infinitive — The Grand Finale</div>
+                                <div class="ch-summary">The base form and its compound counterpart. After prepositions, after other verbs, as nouns — plus "après avoir/être + participe passé" for completed actions.</div>
+                            </div>
+                        </div>
+                        <div class="ch-card-bottom"><span class="ch-tag special">Verbal form</span></div>
+                    </a>
+
+                </div>
+            </div>
+
+        </div><!-- end .toc-content -->
+
+        <div class="toc-footer">
+            21 tenses · 5 moods · 1 complete guide
         </div>
     </div>
 </body>
