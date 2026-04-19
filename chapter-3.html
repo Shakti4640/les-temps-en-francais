@@ -8,14 +8,17 @@
 <link rel="stylesheet" href="styles.css">    <style>
         /* ===== Chapter 3 - Modern Shell ===== */
 
-        /* Hero - compact chapter header inspired by chapter-0 */
+        /* Hero - compact chapter header inspired by chapter-0 (sticky at top) */
         .hero-section {
+            position: sticky;
+            top: 0;
+            z-index: 1500;
             background: linear-gradient(135deg, #002395 0%, #0a3d91 40%, #1a56db 100%);
             color: #fff;
-            padding: 36px 40px 30px;
+            padding: 22px 40px 20px;
             text-align: center;
-            position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,35,149,0.22);
         }
         .hero-section::before {
             content: '';
@@ -26,41 +29,41 @@
         }
         .hero-crumb {
             display: inline-flex; align-items: center; gap: 8px;
-            padding: 5px 14px;
+            padding: 4px 12px;
             background: rgba(255,255,255,0.14);
             border: 1px solid rgba(255,255,255,0.22);
             border-radius: 999px;
-            font-size: 0.74rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 14px;
+            margin-bottom: 8px;
             backdrop-filter: blur(4px);
         }
         .hero-num {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 22px; height: 22px;
+            width: 20px; height: 20px;
             background: #fff;
             color: #002395;
             border-radius: 50%;
             font-weight: 800;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             letter-spacing: 0;
         }
         .hero-title {
-            font-size: 1.85rem;
+            font-size: 1.45rem;
             font-weight: 700;
             letter-spacing: -0.3px;
-            margin: 0 0 10px;
+            margin: 0 0 4px;
             text-shadow: 0 2px 8px rgba(0,0,0,0.22);
             line-height: 1.2;
         }
         .hero-sub {
-            font-size: 0.98rem;
+            font-size: 0.88rem;
             opacity: 0.92;
-            max-width: 640px;
+            max-width: 720px;
             margin: 0 auto;
-            line-height: 1.55;
+            line-height: 1.45;
         }
 
         /* =================================================================
@@ -564,9 +567,9 @@
         }
 
         @media (max-width: 768px) {
-            .hero-section { padding: 28px 20px 24px; }
-            .hero-title { font-size: 1.4rem; }
-            .hero-sub { font-size: 0.9rem; }
+            .hero-section { padding: 16px 16px 14px; }
+            .hero-title { font-size: 1.12rem; }
+            .hero-sub { font-size: 0.8rem; line-height: 1.4; }
             .content { padding: 24px 16px; }
             .content table { font-size: 0.88rem; }
         }
